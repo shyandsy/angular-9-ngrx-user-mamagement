@@ -1,0 +1,70 @@
+<h3>添加用户</h3>
+<form class="form-inline mb-4">
+    <label class="sr-only" for="username">用户名</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="text" class="form-control" formControlName="username" placeholder="请输入用户名">
+    </div>
+
+    <label class="sr-only" for="password">密码</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="password" class="form-control" formControlName="password" placeholder="请输入密码">
+    </div>
+
+    <label class="sr-only" for="role_id">Membership</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <select formControlName="role_id" class="form-control">
+            <option value="1">超级管理员</option>
+            <option value="2">一级代理商</option>
+            <option value="3">二级代理商</option>
+        </select>
+    </div>
+
+    <label class="sr-only" for="cnname">中文名</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="text" class="form-control" formControlName="cnname" placeholder="请输入中文名">
+    </div>
+
+    <label class="sr-only" for="enname">英文名</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="text" class="form-control" formControlName="enname" placeholder="请输入英文名">
+    </div>
+    
+    <label class="sr-only" for="email">Email</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="text" class="form-control" formControlName="email" placeholder="请输入邮箱">
+    </div>
+
+    <label class="sr-only" for="telephone">电话</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="text" class="form-control" formControlName="telephone" placeholder="请输入电话号码">
+    </div>
+
+    <label class="sr-only" for="mobile">手机</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="text" class="form-control" formControlName="mobile" placeholder="请输入手机号">
+    </div>
+
+    <label class="sr-only" for="fax">传真</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="text" class="form-control" formControlName="fax" placeholder="请输入传真号码">
+    </div>
+
+    <label class="sr-only" for="address">地址</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="text" class="form-control" formControlName="address" placeholder="请输入地址">
+    </div>
+
+    <label class="sr-only" for="post">邮编</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="text" class="form-control" formControlName="post" placeholder="请输入邮编">
+    </div>
+
+    <label class="sr-only" for="status">状态</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <select formControlName="role_id" class="form-control">
+            <option value="1">启用</option>
+            <option value="0">禁用</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">添加</button>
+</form>
