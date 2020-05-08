@@ -1,37 +1,47 @@
-import { formatDate } from '@angular/common';
+import * as userAction from './user.actions';
+import * as fromRoot from '../../state/app-state';
+import { User } from '../user.model';
 
-let date = new Date();
-const initialState = {
-    users: [
-        {
-            username: "shyclouds",
-            cnname: "李连杰",
-            enname: "Jack Li",
-            password: "",
-            role_id: 1,
-            email: "shyclouds@shyclouds.com",
-            telephone: "01022334441",
-            mobile: "13122334455",
-            fax: "01022334442",
-            address: "北京市长安街128号",
-            post: "10001",
-            token: "xxxxx",
-            expired: new Date(),
-            status: 1,
-            ip: "127.0.0.1",
-        }
-    ],
-    loading: false,
-    loaded: true,
+export interface UserState{
+    users: User[],
+    loading: boolean,
+    loaded: boolean,
+    error: string,
 }
 
-export function userReducer(state = initialState, action){
+export interface AppState extends fromRoot.AppState{
+    users: UserState;
+}
+
+export const initialState: UserState= {
+    users: [],
+    loading: false,
+    loaded: true,
+    error: "",
+}
+
+export function userReducer(state = initialState, action: userAction.ACTION): UserState{
     switch(action.type){
-        case "LOAD_USERS":{
+        case userAction.UserActionTypes.LOAD_USERS:{
+            return {
+                ...state,
+                loading: true,
+            }
+        }
+        case userAction.UserActionTypes.LOAD_USERS_SUCESS:{
+            return {
+                ...state,
+                loading: false,
+                loaded: true,
+                users: action.payload
+            }
+        }
+        case userAction.UserActionTypes.LOAD_USERS_FAILED:{
             return {
                 ...state,
                 loading: true,
                 loaded: false,
+                error: action.payload
             }
         }
         default: {
