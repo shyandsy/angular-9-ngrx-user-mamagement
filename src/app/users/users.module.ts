@@ -2,6 +2,9 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from "@angular/router";
 
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from './state/user.reducer';
+
 import { UserComponent } from './user/user.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
@@ -21,7 +24,8 @@ const userRoutes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(userRoutes)
+    RouterModule.forChild(userRoutes),
+    StoreModule.forFeature("users", userReducer),
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

@@ -6,7 +6,6 @@ import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-//import { UsersModule } from './users/users.module';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
@@ -17,14 +16,10 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({}), // 在module中添加reducer
     AppRoutingModule,
-    //UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [ 
-    //CUSTOM_ELEMENTS_SCHEMA 
-  ],
 })
 export class AppModule { }
