@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import * as userActions from '../state/user.actions';
 
 import {User} from './../user.model';
 
@@ -16,7 +17,7 @@ export class UserListComponent implements OnInit {
   constructor(private store: Store<any>) { }
 
   ngOnInit(): void {
-    this.store.dispatch({type: 'LOAD_USERS'});
+    this.store.dispatch(new userActions.LoadUsers());
     this.store.subscribe(state => (this.users = state.users.users));
   }
 }
