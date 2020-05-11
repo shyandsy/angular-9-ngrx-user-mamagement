@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Store } from '@ngrx/store';
+import { Store,select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import * as userActions from '../state/user.actions';
+import * as fromUser from '../state/user.reducer';
 
 import {User} from './../user.model';
 
@@ -12,12 +15,14 @@ import {User} from './../user.model';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users: User[];
+  users$: Observable<User[]>;
 
-  constructor(private store: Store<any>) { }
+  constructor(private store: Store<fromUser.AppState>) { }
 
   ngOnInit(): void {
+    console.log("xxxxx");
     this.store.dispatch(new userActions.LoadUsers());
-    this.store.subscribe(state => (this.users = state.users.users));
+    this.users$ = this.store.pipe(select(fromUser.getUsers));
+    //this.store.subscribe(state => (this.users = state.users.users));
   }
 }

@@ -1,4 +1,6 @@
 import * as userAction from './user.actions';
+import {createFeatureSelector, createSelector, Store} from '@ngrx/store';
+
 import * as fromRoot from '../../state/app-state';
 import { User } from '../user.model';
 
@@ -49,3 +51,27 @@ export function userReducer(state = initialState, action: userAction.ACTION): Us
         }
     }
 }
+
+const getUserFeatureState = createFeatureSelector<UserState>(
+    "users"
+)
+
+export const getUsers = createSelector(
+    getUserFeatureState,
+    (state: UserState) => state.users
+)
+
+export const getUsersLoading = createSelector(
+    getUserFeatureState,
+    (state: UserState) => state.loading
+)
+
+export const getUsersLoaded = createSelector(
+    getUserFeatureState,
+    (state: UserState) => state.loaded
+)
+
+export const getError = createSelector(
+    getUserFeatureState,
+    (state: UserState) => state.error
+)

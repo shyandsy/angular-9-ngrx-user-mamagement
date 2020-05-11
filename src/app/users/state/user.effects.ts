@@ -21,22 +21,26 @@ export class UserEffect{
 
     @Effect()
     loadUsers$: Observable<Action> = createEffect(() => {
+        console.log(111);
         return this.actions$.pipe(
             ofType<userActions.LoadUsers>(
                 userActions.UserActionTypes.LOAD_USERS
             ),
-            mergeMap((actions: userActions.LoadUsers) => 
-                this.userService.getUsers().pipe(
+            mergeMap((actions: userActions.LoadUsers) => {
+                console.log(actions);
+                return this.userService.getUsers().pipe(
                     map(
                         (usersResponse: Response<User[]>) => {
                             if(usersResponse.code == 0){
                                 return new userActions.LoadUsersSuccess(usersResponse.data);
+                            }else{
+                                return new userActions.LoadUsersFailed(usersResponse.msg);
                             }
                         }
                     ),
                     catchError(err => of(new userActions.LoadUsersFailed(err)))
                 )
-            )
+            })
         )
     });
 }

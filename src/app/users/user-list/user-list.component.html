@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of users">
+        <tr *ngFor="let user of (users$ | async)">
             <th scope="row">{{user.username}}</th>
             <td>{{user.role_id}}</td>
             <td>{{user.cnname}}</td>
