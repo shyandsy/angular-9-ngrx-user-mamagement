@@ -22,6 +22,8 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     console.log("xxxxx");
     this.store.dispatch(new userActions.LoadUsers());
+    
+    // 调用reducer的getUsers方法
     this.users$ = this.store.pipe(select(fromUser.getUsers));
     //this.store.subscribe(state => (this.users = state.users.users));
   }
