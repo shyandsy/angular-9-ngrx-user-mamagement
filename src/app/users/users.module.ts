@@ -12,6 +12,8 @@ import { UserAddComponent } from './user-add/user-add.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserListComponent } from './user-list/user-list.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 const userRoutes: Routes = [
   {path:"", component: UserComponent,},
   //{path:"/users/add", component: UserAddComponent}
@@ -28,7 +30,8 @@ const userRoutes: Routes = [
     CommonModule,
     RouterModule.forChild(userRoutes),
     StoreModule.forFeature("users", userReducer),
-    EffectsModule.forFeature([UserEffect])
+    EffectsModule.forFeature([UserEffect]),
+    FormsModule, ReactiveFormsModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

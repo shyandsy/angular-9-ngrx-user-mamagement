@@ -8,6 +8,7 @@ import * as userActions from '../state/user.actions';
 import * as fromUser from '../state/user.reducer';
 
 import {User} from './../user.model';
+import { compileNgModuleFromRender2 } from '@angular/compiler/src/render3/r3_module_compiler';
 
 @Component({
   selector: 'app-user-list',
@@ -16,15 +17,25 @@ import {User} from './../user.model';
 })
 export class UserListComponent implements OnInit {
   users$: Observable<User[]>;
+  errors$: Observable<String>;
 
   constructor(private store: Store<fromUser.AppState>) { }
 
   ngOnInit(): void {
-    console.log("xxxxx");
     this.store.dispatch(new userActions.LoadUsers());
     
     // 调用reducer的getUsers方法
     this.users$ = this.store.pipe(select(fromUser.getUsers));
     //this.store.subscribe(state => (this.users = state.users.users));
+  }
+
+  editUser(user: User){
+    this.store.dispatch(new userActions.LoadUser(user.id))
+  }
+
+  deleteUser(user:User){
+    if(confirm("确定删除用户?")){
+      this.store.dispatch(new userActions.DeleteUser(user.id))
+    }
   }
 }

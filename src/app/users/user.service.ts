@@ -10,30 +10,46 @@ import { User, } from "./user.model";
   providedIn: "root"
 })
 export class UserService {
-  private customersUrl = "http://localhost:8000/user";
+  private usersUrl = "http://localhost:8000/user";
 
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<Response<User[]>> {
-    return this.http.get<Response<User[]>>(this.customersUrl);
-  }
-
-  getUserById(payload: number): Observable<User> {
-    return this.http.get<User>(`${this.customersUrl}/${payload}`);
-  }
-
-  createUser(payload: User): Observable<User> {
-    return this.http.post<User>(this.customersUrl, payload);
-  }
-
-  updateUser(customer: User): Observable<User> {
-    return this.http.patch<User>(
-      `${this.customersUrl}/${customer.id}`,
-      customer
+    console.log("user service: Get Users")
+    return this.http.get<Response<User[]>>(this.usersUrl, 
+      //{headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}}
     );
   }
 
-  deleteCustomer(payload: number) {
-    return this.http.delete(`${this.customersUrl}/${payload}`);
+  getUserById(payload: number): Observable<Response<User>> {
+    console.log("user service: Get User By Id")
+    return this.http.get<Response<User>>(`${this.usersUrl}/${payload}`, 
+      //{headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}}
+    );
+  }
+
+  createUser(payload: User): Observable<Response<User>> {
+    console.log("user service: Create User")
+    console.log(payload)
+    return this.http.post<Response<User>>(this.usersUrl, 
+      payload, 
+      //{headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}}
+    );
+  }
+
+  updateUser(user: User): Observable<Response<User>> {
+    console.log("user service: Update User")
+    return this.http.patch<Response<User>>(
+      `${this.usersUrl}/${user.id}`,
+      user,
+      //{headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}}
+    );
+  }
+
+  deleteUser(payload: number) {
+    console.log("user service: Delete User")
+    return this.http.delete(`${this.usersUrl}/${payload}`, 
+      //{headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}}
+    );
   }
 }

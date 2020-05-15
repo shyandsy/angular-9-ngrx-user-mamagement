@@ -3,10 +3,9 @@
     <thead>
         <tr class="table-primary">
             <th scope="col">用户名</th>
-            <th scope="col">角色</th>
-            <th scope="col">中文名</th>
-            <th scope="col">英文名</th>
             <th scope="col">Email</th>
+            <th scope="col">角色</th>
+            <th scope="col">名字</th>
             <th scope="col">电话</th>
             <th scope="col">手机</th>
             <th scope="col">传真</th>
@@ -17,12 +16,14 @@
         </tr>
     </thead>
     <tbody>
+        <tr>
+            <td colspan="11" class="alert alert-danger" *ngIf="errors$ | async as error">{{error}}</td>
+        </tr>
         <tr *ngFor="let user of (users$ | async)">
             <th scope="row">{{user.username}}</th>
-            <td>{{user.role_id}}</td>
-            <td>{{user.cnname}}</td>
-            <td>{{user.enname}}</td>
             <td>{{user.email}}</td>
+            <td>{{user.role_id}}</td>
+            <td>{{user.cnname}}{{user.enname}}</td>
             <td>{{user.telephone}}</td>
             <td>{{user.mobile}}</td>
             <td>{{user.fax}}</td>
@@ -30,9 +31,9 @@
             <td>{{user.post}}</td>
             <td>{{user.status}}</td>
             <th>
-                <a>修改</a>
+                <a (click)="editUser(user)">修改</a>
                 <br>
-                <a>删除</a>
+                <a (click)="deleteUser(user)">删除</a>
             </th>
         </tr>
     </tbody>

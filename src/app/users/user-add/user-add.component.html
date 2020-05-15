@@ -1,5 +1,5 @@
 <h3>添加用户</h3>
-<form class="form-inline mb-4">
+<form [formGroup]="userForm" (ngSubmit)="createUser()" class="form-inline mb-4">
     <label class="sr-only" for="username">用户名</label>
     <div class="input-group mb-2 mr-sm-2">
         <input type="text" class="form-control" formControlName="username" placeholder="请输入用户名">
@@ -10,13 +10,18 @@
         <input type="password" class="form-control" formControlName="password" placeholder="请输入密码">
     </div>
 
-    <label class="sr-only" for="role_id">Membership</label>
+    <label class="sr-only" for="role_id">角色</label>
     <div class="input-group mb-2 mr-sm-2">
         <select formControlName="role_id" class="form-control">
-            <option value="1">超级管理员</option>
-            <option value="2">一级代理商</option>
-            <option value="3">二级代理商</option>
+            <option [ngValue]="1">超级管理员</option>
+            <option [ngValue]="2">一级代理商</option>
+            <option [ngValue]="3">二级代理商</option>
         </select>
+    </div>
+
+    <label class="sr-only" for="expired">过期时间</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="text" class="form-control" formControlName="expired" placeholder="请输入过期时间">
     </div>
 
     <label class="sr-only" for="cnname">中文名</label>
@@ -61,9 +66,9 @@
 
     <label class="sr-only" for="status">状态</label>
     <div class="input-group mb-2 mr-sm-2">
-        <select formControlName="role_id" class="form-control">
-            <option value="1">启用</option>
-            <option value="0">禁用</option>
+        <select formControlName="status" class="form-control">
+            <option [ngValue]="1">启用</option>
+            <option [ngValue]="0">禁用</option>
         </select>
     </div>
     <button type="submit" class="btn btn-primary mb-2">添加</button>

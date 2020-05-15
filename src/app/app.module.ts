@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +24,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     EffectsModule.forRoot([]),
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,    // 使用FormBuilder需要导入ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

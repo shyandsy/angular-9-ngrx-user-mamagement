@@ -1,6 +1,6 @@
 import { Time } from '@angular/common'
 
-export interface User{
+export class User{
     id?: number;
     username: string;
     cnname: string;
