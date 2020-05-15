@@ -24,6 +24,7 @@ The code in the above video is based on angular 6, and it doesn't compatible wit
 - [angular 9打造用户系统 - 4使用ngrx effect从http api加载数据](http://blog.shyclouds.net/%E5%89%8D%E7%AB%AF/angular-9%E6%89%93%E9%80%A0%E7%94%A8%E6%88%B7%E7%B3%BB%E7%BB%9F---4%E4%BD%BF%E7%94%A8ngrx-effect%E4%BB%8Ehttp-api%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE.html)
 - [angular 9打造用户系统 - 5使用ngrx entity](http://blog.shyclouds.net/%E5%89%8D%E7%AB%AF/angular-9%E6%89%93%E9%80%A0%E7%94%A8%E6%88%B7%E7%B3%BB%E7%BB%9F---5%E4%BD%BF%E7%94%A8ngrx-entity.html)
 - [angular 9打造用户系统 - 6使用ngrx entity完成CRUD操作](http://blog.shyclouds.net/%E5%89%8D%E7%AB%AF/angular-9%E6%89%93%E9%80%A0%E7%94%A8%E6%88%B7%E7%B3%BB%E7%BB%9F---6%E4%BD%BF%E7%94%A8ngrx-entity%E5%AE%8C%E6%88%90CRUD%E6%93%8D%E4%BD%9C.html)
+- [angular 9打造用户系统 - 7使用ngrx router store管理路由](http://blog.shyclouds.net/%E5%89%8D%E7%AB%AF/angular-9%E6%89%93%E9%80%A0%E7%94%A8%E6%88%B7%E7%B3%BB%E7%BB%9F---7%E4%BD%BF%E7%94%A8ngrx-router-store%E7%AE%A1%E7%90%86%E8%B7%AF%E7%94%B1.html)
 
 ## Development server
 
